@@ -1,0 +1,11 @@
+{
+  "generator-openapi-repo": {
+    "importExistingSpec": true,
+    "importedSpec": "ExternalFHIA.yaml",
+    "name": "ExternalFHIA",
+    "repo": "imagina/fhaproducts2018_externalapidocs",
+    "splitSpec": false,
+    "samples": true,
+    "installSwaggerUI": true
+  }
+}

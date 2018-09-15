@@ -1,0 +1,140 @@
+swagger: '2.0'
+info:
+  description: External FHIA API
+  version: "0.1.0"
+  title: External FHIA API
+  # put the contact info for your development or API team
+  contact:
+    email: cdevia@fhaproducts.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+#tags:
+#- name: admins
+#  description: Secured Admin-only calls
+
+paths:
+  
+
+
+  /external/preleads/upload:
+    post:
+      tags:
+      - preleads
+      summary: Add a new prelead to the database
+      operationId: upload
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Prelead object that needs to be added to the database
+        required: true
+        schema:
+          $ref: '#/definitions/Prelead'
+      
+      responses:
+        200:
+          description: ok
+        401:
+          description: Not authorized
+        500:
+          description: Returns if a server error occurs. Please log the Request name and time of occurrence, and contact Support if this happens often.
+          
+          
+          
+  /external/preleads/upload/modernize:
+    post:
+      tags:
+      - preleads
+      summary: Add a new prelead to the database
+      operationId: upload/modernize
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Prelead object that needs to be added to the database
+        required: true
+        schema:
+          $ref: '#/definitions/PreleadModernize'
+      
+      responses:
+        200:
+          description: ok
+        500:
+          description: Returns if a server error occurs. Please log the Request name and time of occurrence, and contact Support if this happens often.
+   
+definitions:
+  Prelead:
+    type: object
+    
+  PreleadModernize:
+    type: object
+    properties:
+      "Lead ID":
+        type: string
+      "Date Posted":
+        type: string
+        example: dd/mm/yyyy hh:mm:ss
+      "First Name":
+        type: string
+      
+      Last Name:
+        type: string
+      Address:
+        type: string
+      City:
+        type: string
+      State:
+        type: string
+      Zip:
+        type: string
+      Email:
+        type: string
+      Home Phone:
+        type: string
+      Work Phone: 
+          type: string
+      Cell Phone: 
+        type: string
+      Timing: 
+        type: string
+      Project:
+        type: string
+      Job:
+        type: string
+      Utility Provider:
+        type: string
+      Landline:
+        type: string
+      New Construction: 
+        type: string
+      Heating Cooling:
+        type: string
+      Green Alternatives:
+        type: string
+      Comments: 
+        type: string
+  
+# Added by API Auto Mocking Plugin
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+host: virtserver.swaggerhub.com
+basePath: /imagina/FHIA/1.0.0
+schemes:
+ - https
